@@ -1,0 +1,24 @@
+<h2>Create New Entry</h2>
+
+<%= render "shared/errors" %>
+
+<form action="<%= licenses_url %>" method="post">
+    <input
+    type="hidden"
+    name="authenticity_token"
+    value="<%= form_authenticity_token %>">
+
+
+  <label>
+    Please click in the text box and scan a driver's license:
+    <br>
+    <textarea name="license[body]"></textarea>
+  </label>
+  <br>
+
+  <input type="submit">
+</form>
+
+<br><br>
+
+<%= link_to "Back", licenses_url %>

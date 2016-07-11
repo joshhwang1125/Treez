@@ -1,0 +1,30 @@
+<h1>License Registry</h1>
+
+<%= render "shared/errors" %>
+
+<h3>Search Driver's License by License Number or Scan</h3>
+<%= form_tag(licenses_url, :method => "get", id: "search-form") do %>
+<%= text_field_tag :search, params[:search], placeholder: "Search For License" %>
+<%= submit_tag "Search" %>
+<% end %>
+
+<br><br>
+
+<%= link_to "Create New Entry", new_license_url %>
+
+<br><br>
+
+<%= link_to "Show All Licenses", root_url %>
+
+<br><br>
+
+<h3>All Licenses in System</h3>
+<ul id="licenses">
+  <% if @licenses != nil  %>
+    <% @licenses.each do |license| %>
+      <li>
+        <%= link_to license.DCT + " " + license.DCS, license_url(license) %>
+      </li>
+    <% end %>
+  <% end %>
+</ul>

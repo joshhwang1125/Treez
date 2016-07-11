@@ -1,0 +1,64 @@
+<h1><%= @license.DCT + " " + @license.DCS %></h1>
+
+<table>
+  <% info = ["Start",
+    "DL",
+    "DLD",
+    "Class",
+    "Endorsements",
+    "Expiration",
+    "Surname",
+    "First Name",
+    "Issue Date",
+    "Date of Birth",
+    "Sex",
+    "Eye Color",
+    "Height",
+    "Street",
+    "City",
+    "State",
+    "Zip Code",
+    "License Number",
+    "Document Discriminator",
+    "Country",
+    "DCH",
+    "Hair Color",
+    "Name Suffix"] %>
+  <% [:intro,
+    :DL,
+    :DLD,
+    :DCB,
+    :DCD,
+    :DBA,
+    :DCS,
+    :DCT,
+    :DBD,
+    :DBB,
+    :DBC,
+    :DAY,
+    :DAU,
+    :DAG,
+    :DAI,
+    :DAJ,
+    :DAK,
+    :DAQ,
+    :DCF,
+    :DCG,
+    :DCH,
+    :DAZ,
+    :DCU].each_with_index do |attr_name, i| %>
+    <tr>
+      <td><%= info[i] %></td>
+      <td><%= @license.send(attr_name) %></td>
+    </tr>
+  <% end %>
+</table>
+
+<br><br>
+
+<%= link_to 'Delete License', license_url(@license),
+    data: { confirm: 'Are you sure?' }, method: :delete %>
+
+<br><br>
+
+<%= link_to "Back", licenses_url %>
