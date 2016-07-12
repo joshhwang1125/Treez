@@ -147,11 +147,8 @@ li {
    transition: 0.5s ease-in-out;
 }
 
-.form-control {
-  width: 20%;
-}
 
-.search-field {
+.search-field, .form-control {
   width: 600px;
   height: 150px;
   resize: none;
@@ -183,6 +180,11 @@ table td {
   text-align: center;
   color: black;
 
+}
+
+.errors {
+  padding-left: 50px;
+  color: Red;
 }
 
 
