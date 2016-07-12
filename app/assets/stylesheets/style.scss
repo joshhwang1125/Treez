@@ -154,6 +154,7 @@ li {
 .search-field {
   width: 600px;
   height: 150px;
+  resize: none;
 }
 
 input[type=submit] {
@@ -169,9 +170,19 @@ input[type=submit]:hover {
     transition: 0.5s;
 }
 
-/*#license-list li {
-  display: inline;
-  float: left;
-}*/
+table {
+  border-collapse: collapse;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  table-layout: fixed;
+}
+
+table td {
+  padding: .555em;
+  text-align: center;
+  color: black;
+
+}
 
 
