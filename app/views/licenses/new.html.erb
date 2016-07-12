@@ -1,6 +1,16 @@
-<h2>Create New Entry</h2>
+<header class="menunav">
+  <div class="inner">
+    <h1 id="title">Create New Entry</h1>
+    <nav class='navigation'>
+      <ul>
+        <%= link_to "Back", licenses_url %>
+      </ul>
+    </nav>
+  </div>
+</header>
 
-<%= render "shared/errors" %>
+
+<div class="search-div">
 
 <form action="<%= licenses_url %>" method="post">
     <input
@@ -8,17 +18,13 @@
     name="authenticity_token"
     value="<%= form_authenticity_token %>">
 
-
-  <label>
-    Please click in the text box and scan a driver's license:
-    <br>
-    <textarea name="license[body]"></textarea>
-  </label>
-  <br>
+  <h3>Please click in the text box and scan a driver's license</h3>
+  <textarea name="license[body]" class='search-field'></textarea>
+  <br><br>
 
   <input type="submit">
 </form>
+</div>
 
-<br><br>
 
-<%= link_to "Back", licenses_url %>
+

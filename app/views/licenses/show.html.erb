@@ -1,64 +1,29 @@
-<h1><%= @license.DCT + " " + @license.DCS %></h1>
+<header class="menunav">
+  <div class="inner">
+    <h1 id="title"><%= @license.DCT + " " + @license.DCS %></h1>
+    <nav class='navigation'>
+      <ul>
+        <%= link_to 'Delete License', license_url(@license),
+    data: { confirm: 'Are you sure?' }, method: :delete %>
+        <%= link_to "Back", licenses_url %>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
 
 <table>
-  <% info = ["Start",
-    "DL",
-    "DLD",
-    "Class",
-    "Endorsements",
-    "Expiration",
-    "Surname",
-    "First Name",
-    "Issue Date",
-    "Date of Birth",
-    "Sex",
-    "Eye Color",
-    "Height",
-    "Street",
-    "City",
-    "State",
-    "Zip Code",
-    "License Number",
-    "Document Discriminator",
-    "Country",
-    "DCH",
-    "Hair Color",
-    "Name Suffix"] %>
-  <% [:intro,
-    :DL,
-    :DLD,
-    :DCB,
-    :DCD,
-    :DBA,
-    :DCS,
-    :DCT,
-    :DBD,
-    :DBB,
-    :DBC,
-    :DAY,
-    :DAU,
-    :DAG,
-    :DAI,
-    :DAJ,
-    :DAK,
-    :DAQ,
-    :DCF,
-    :DCG,
-    :DCH,
-    :DAZ,
-    :DCU].each_with_index do |attr_name, i| %>
+  <% License::COLUMNS.each_with_index do |attr_name, i| %>
     <tr>
-      <td><%= info[i] %></td>
-      <td><%= @license.send(attr_name) %></td>
+      <td><%= License::DISPLAY[i] %></td>
+      <td><%= @license[attr_name] %></td>
     </tr>
   <% end %>
 </table>
 
 <br><br>
 
-<%= link_to 'Delete License', license_url(@license),
-    data: { confirm: 'Are you sure?' }, method: :delete %>
+
 
 <br><br>
-
-<%= link_to "Back", licenses_url %>

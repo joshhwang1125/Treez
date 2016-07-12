@@ -37,25 +37,7 @@ class License < ActiveRecord::Base
 
   after_initialize :parse_body
 
-  # def self.find_by_license(license)
-  #   license = License.find_by(DAQ: license)
-  #   return nil unless license
-  #   license
-  # end
-
-  # def self.find_by_body(body)
-  #   license = License.find_by(body: body)
-  #   return nil unless license
-  #   license
-  # end
-
-  def self.search(search)
-    where("DAQ LIKE ? OR body LIKE ?", "#{search}", "#{search}")
-  end
-
-
-  def parse_body
-    delimiters = [
+  DELIMITERS = [
     "DLD",
     "DCB",
     "DCD",
@@ -78,12 +60,68 @@ class License < ActiveRecord::Base
     "DAZ",
     "DCU",
     "DL"]
-    columns = ["intro", "DL"].concat(delimiters[0...-1]).map! { |col| col.to_sym }
+
+  DISPLAY = ["Start",
+    "DL",
+    "DLD",
+    "Class",
+    "Endorsements",
+    "Expiration",
+    "Surname",
+    "First Name",
+    "Issue Date",
+    "Date of Birth",
+    "Sex",
+    "Eye Color",
+    "Height",
+    "Street",
+    "City",
+    "State",
+    "Zip Code",
+    "License Number",
+    "Document Discriminator",
+    "Country",
+    "DCH",
+    "Hair Color",
+    "Name Suffix"]
+
+  COLUMNS = [:intro,
+    :DL,
+    :DLD,
+    :DCB,
+    :DCD,
+    :DBA,
+    :DCS,
+    :DCT,
+    :DBD,
+    :DBB,
+    :DBC,
+    :DAY,
+    :DAU,
+    :DAG,
+    :DAI,
+    :DAJ,
+    :DAK,
+    :DAQ,
+    :DCF,
+    :DCG,
+    :DCH,
+    :DAZ,
+    :DCU]
+
+
+
+  def self.search(search)
+    where("DAQ LIKE ? OR body LIKE ?", "#{search}", "#{search}")
+  end
+
+
+  def parse_body
     modified_body = self.body.clone
-    delimiters.each { |replacement| modified_body.gsub!(replacement, "$$") }
+    DELIMITERS.each { |replacement| modified_body.gsub!(replacement, "$$") }
     parsed_array = modified_body.split("$$").map { |entry| entry.strip }
     [*0..22].each do |num|
-      self[columns[num]] = parsed_array[num]
+      self[COLUMNS[num]] = parsed_array[num]
     end
   end
 end

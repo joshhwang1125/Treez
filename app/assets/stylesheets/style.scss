@@ -1,0 +1,177 @@
+$ptsans: "PT Sans", "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
+$text-color: #555f77;
+
+
+html {
+  /*background-color: #EFEFEF;*/
+  font-family: $ptsans;
+  color: $text-color;
+  -webkit-font-smoothing: antialiased;
+  margin: 0px;
+
+}
+
+body {
+  background-image: url("http://kaba35.com/wp-content/uploads/2015/11/Savin-NY-Website-Background-Web.jpg");
+  height: 800px;
+  margin: 0px;
+}
+
+
+.errors {
+
+}
+
+#title {
+  float: left;
+  font-weight: 600;
+  max-width: 500px;
+  font-size: 42px;
+  position: absolute;
+  top: 13px; bottom: 0; left: 0; right: 0;
+  margin: auto;
+  margin-left: 50px;
+  color: White;
+
+}
+
+#holder {
+  min-height: 100%;
+  position:relative;
+  /*background-color: #EFEFEF;*/
+  padding-top: 120px;
+
+  /*height: 800px;
+  width: 100%;*/
+}
+
+#app-content {
+  min-height: 100%;
+  position:relative;
+}
+
+.menunav {
+  position: fixed;
+  width: 100%;
+  height: 80px;
+  min-width: 940px;
+  top: 0;
+  background: #000;
+  z-index: 100;
+  user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+li {
+  padding: 0;
+  text-decoration: none;
+  list-style-type: none;
+}
+
+.navigation ul {
+  float: right;
+  margin-top: 20px;
+  margin-right: 50px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.navigation li {
+  display: inline;
+  float: left;
+}
+
+.navigation a {
+   text-decoration: none;
+   color: White;
+   padding: 10px;
+}
+
+.navigation a:hover {
+   text-decoration: none;
+   cursor: pointer;
+   color: #23afdc;
+   transition: 0.5s ease-in-out;
+}
+
+
+
+.search-div, #license-list {
+  width: 100%;
+  position:relative;
+  padding-left: 50px;
+  padding-bottom: 50px;
+}
+
+#license-list a {
+   text-decoration: none;
+   color: Black;
+   padding: 10px;
+}
+
+#license-list a:hover {
+   text-decoration: none;
+   cursor: pointer;
+   color: #23afdc;
+   transition: 1s ease-in-out;
+}
+
+#license-list ul {
+  float: left;
+  margin-top: 10px;
+}
+
+#licenses {
+  padding-left:0;
+}
+
+#licenses li {
+  margin: 0 0 10px 0;
+}
+
+#license-list a {
+   text-decoration: none;
+   color: Black;
+   padding: 10px;
+   font-family: Helvetica;
+}
+
+#license-list a:hover {
+   text-decoration: none;
+   cursor: pointer;
+   color: #137df1;
+   transition: 0.5s ease-in-out;
+}
+
+.form-control {
+  width: 20%;
+}
+
+.search-field {
+  width: 600px;
+  height: 150px;
+}
+
+input[type=submit] {
+    border: 1px solid #358eef;
+    color: #fff;
+    background: #358eef;
+    padding: 10px 20px;
+    border-radius: 3px;
+}
+
+input[type=submit]:hover {
+    background: #007aff;
+    transition: 0.5s;
+}
+
+/*#license-list li {
+  display: inline;
+  float: left;
+}*/
+
+
